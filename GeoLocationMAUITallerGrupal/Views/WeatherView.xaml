@@ -7,49 +7,39 @@
     <ContentPage.BindingContext>
         <namespace:WeatherViewModel />
     </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-    <VerticalStackLayout>
+        <Image Source="{Binding WeatherImage}" HeightRequest="150" />
+
         <Entry
-            x:Name="Latitude"
-            Text="{Binding WeatherDataInfo.Latitude}"
-            Placeholder="Ingrese una ubicación"
-            />
+        x:Name="Latitude"
+        Text="{Binding WeatherDataInfo.Latitude}"
+        Placeholder="Latitud"
+        />
+
         <Entry
-            x:Name="Longitude"
-            Text="{Binding WeatherDataInfo.Longitude}"
-            Placeholder="Ingrese una ubicación"
-            />
+        x:Name="Longitude"
+        Text="{Binding WeatherDataInfo.Longitude}"
+        Placeholder="Longitud"
+        />
 
         <Button 
-            x:Name="RecalculateWeather"
-            Text="Actualizar"
-            Command="{Binding RecalculateWeather}"
-            />
-        <Label
-            x:Name="LabelTemperatura"
-            Text="{Binding WeatherDataInfo.Current.Temperature2m}"
-            />
-        
-        <Label
-            x:Name="LabelTemperatureUnit"
-            Text="{Binding WeatherDataInfo.CurrentUnits.Temperature2m}"
-            />
-        <Label
-            x:Name="LabelHumedad"
-            Text="{Binding WeatherDataInfo.Current.RelativeHumidity2m}"
-            />
-        <Label
-            x:Name="LabelHumedadUnit"
-            Text="{Binding WeatherDataInfo.CurrentUnits.RelativeHumidity2m}"
-            />
-        <Label x:Name="LabelTemperatureFull">
-            <Label.Text>
-                <MultiBinding StringFormat="{}{0}{1}">
-                    <Binding Path="WeatherDataInfo.Current.Rain" />
-                    <Binding Path="WeatherDataInfo.CurrentUnits.Rain" />
-                </MultiBinding>
-            </Label.Text>
-        </Label>
-        
+        x:Name="RecalculateWeather"
+        Text="Actualizar Clima"
+        Command="{Binding RecalculateWeather}"
+        BackgroundColor="#1E90FF"
+        CornerRadius="10"/>
+
+        <Label Text="Temperatura:" FontAttributes="Bold"/>
+        <Label Text="{Binding TemperaturaConUnidad}" />
+
+        <Label Text="Humedad:" FontAttributes="Bold"/>
+        <Label Text="{Binding HumedadConUnidad}" />
+
+        <Label Text="Lluvia:" FontAttributes="Bold"/>
+        <Label Text="{Binding LluviaConUnidad}" />
+
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -31,8 +31,14 @@ namespace GeoLocationMAUITallerGrupal.ViewModels
 
         public WeatherViewModel()
         {
-           GetCurrentWeatherFromLocation();
+            WeatherDataInfo = new WeatherData
+            {
+                Current = new CurrentWeather(),
+                CurrentUnits = new CurrentUnits()
+            };
+          
             RecalculateWeather = new Command(async () => WeatherFromLocation());
+            GetCurrentWeatherFromLocation();
         }
 
         public async void GetCurrentWeatherFromLocation()

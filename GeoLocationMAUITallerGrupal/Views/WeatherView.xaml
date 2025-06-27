@@ -42,6 +42,14 @@
             x:Name="LabelHumedadUnit"
             Text="{Binding WeatherDataInfo.CurrentUnits.RelativeHumidity2m}"
             />
+        <Label x:Name="LabelTemperatureFull">
+            <Label.Text>
+                <MultiBinding StringFormat="{}{0}{1}">
+                    <Binding Path="WeatherDataInfo.Current.Rain" />
+                    <Binding Path="WeatherDataInfo.CurrentUnits.Rain" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
         
     </VerticalStackLayout>
 </ContentPage>

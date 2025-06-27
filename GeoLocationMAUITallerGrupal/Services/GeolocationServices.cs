@@ -27,24 +27,23 @@ namespace GeoLocationMAUITallerGrupal.Services
                 {
                     return location;
                 }
+
                 throw new Exception("Unable to get location");
 
             }
-            
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Unable to get location
+                throw;
             }
             finally
             {
                 _isCheckingLocation = false;
             }
-            return new Location
+            /*return new Location
             {
-                Latitude = 0,
-                Longitude = 0,
-
-            };
+                Latitude = -0.22985,
+                Longitude = -78.52495,
+            };*/
 
         }
 

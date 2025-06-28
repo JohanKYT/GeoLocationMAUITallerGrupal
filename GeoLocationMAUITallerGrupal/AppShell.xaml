@@ -17,10 +17,17 @@
             Title="Notas"
             ContentTemplate="{DataTemplate local:AllNotesPage}"
             Route="AllNotesPage" />
+
+        <ShellContent
+            Title="Recordatorios"
+            ContentTemplate="{DataTemplate local:RecordatorioPage}"
+            Route="RecordatorioPage" />
+        
         <ShellContent
             Title="Integrantes"
             ContentTemplate="{DataTemplate local:GroupInformationPage}"
-            Route="GroupInformationPage" /> 
+            Route="GroupInformationPage" />
+        
 
     </TabBar>
 </Shell>

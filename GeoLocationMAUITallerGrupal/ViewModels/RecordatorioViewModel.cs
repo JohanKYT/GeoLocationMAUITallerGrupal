@@ -9,7 +9,7 @@ using GeoLocationMAUITallerGrupal.Services;
 
 namespace GeoLocationMAUITallerGrupal.ViewModels
 {
-    public class RecordatoriosViewModel : INotifyPropertyChanged
+    public class RecordatorioViewModel : INotifyPropertyChanged
     {
         private readonly RecordatorioServices _recordatoriosService;
         private ObservableCollection<Recordatorio> _recordatorios = new();
@@ -74,7 +74,7 @@ namespace GeoLocationMAUITallerGrupal.ViewModels
         public ICommand ToggleActivoCommand { get; }
         public ICommand RefreshCommand { get; }
 
-        public RecordatoriosViewModel()
+        public RecordatorioViewModel()
         {
             _recordatoriosService = new RecordatorioServices();
 

@@ -39,16 +39,16 @@ namespace GeoLocationMAUITallerGrupal.ViewModels
                 new EquipoGrupal
                 {
                     Name = "Juan Antamba",
-                    Age = 21,
+                    Age = 20,
                     FavoriteSport = "Fútbol",
-                    Description = ""
+                    Description = "Me gusta la programación frontend"
                 },
                 new EquipoGrupal
                 {
                     Name = "Rodrigo Andrade",
                     Age = 29,
-                    FavoriteSport = "",
-                    Description = ""
+                    FavoriteSport = "Nadar",
+                    Description = "Yolo"
                 },
                 new EquipoGrupal
                 {

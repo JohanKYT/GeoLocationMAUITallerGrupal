@@ -17,6 +17,10 @@
             Title="Notas"
             ContentTemplate="{DataTemplate local:AllNotesPage}"
             Route="AllNotesPage" />
+        <ShellContent
+            Title="Integrantes"
+            ContentTemplate="{DataTemplate local:GroupInformationPage}"
+            Route="GroupInformationPage" /> 
 
     </TabBar>
 </Shell>

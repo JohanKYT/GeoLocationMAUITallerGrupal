@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:GeoLocationMAUITallerGrupal.ViewModels"
+             xmlns:models="clr-namespace:GeoLocationMAUITallerGrupal.Models"
+             x:Class="GeoLocationMAUITallerGrupal.Views.GroupInformationPage"
+             Title="Equipo Grupal"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <CollectionView ItemsSource="{Binding Equipogrupal}"
+                    Margin="15"
+                    SelectionMode="None"
+                    BackgroundColor="Transparent">
+
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="15" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:EquipoGrupal">
+                <Frame BackgroundColor="{DynamicResource CardBackgroundColor}"
+                       CornerRadius="15"
+                       HasShadow="True"
+                       Padding="15"
+                       Margin="0">
+                    <VerticalStackLayout Spacing="8">
+
+                        <!-- Nombre -->
+                        <Label Text="{Binding Name}"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="{DynamicResource PrimaryTextColor}" />
+
+                        <!-- Edad con imagen -->
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                            <Image Source="edad.png"                         
+                                   WidthRequest="24" HeightRequest="24"
+                                   VerticalOptions="Center" />
+                           
+                            <Label Text="{Binding Age, StringFormat='Edad: {0} años'}"
+                                   FontSize="16"
+                                   TextColor="{DynamicResource SecondaryTextColor}" />
+                        </HorizontalStackLayout>
+
+                        <!-- Deporte favorito con imagen -->
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                            <Image Source="deportes.png"
+                                   WidthRequest="24" HeightRequest="24"
+                                   VerticalOptions="Center" />
+                            <Label Text="Deporte Favorito:"
+                                    FontSize="16"
+                                    TextColor="{DynamicResource SecondaryTextColor}" />
+                            <Label Text="{Binding FavoriteSport}"
+                                   FontSize="16"
+                                   TextColor="{DynamicResource SecondaryTextColor}" />
+                        </HorizontalStackLayout>
+                        
+
+                        <!-- Descripción (solo si no está vacía) -->
+                        <Label Text="💬 Sobre mi:"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="{DynamicResource SecondaryTextColor}" />
+
+                        <Label Text="{Binding Description}"
+                               FontSize="14"
+                               TextColor="{DynamicResource TertiaryTextColor}"
+                               LineBreakMode="WordWrap"
+                               FontAttributes="Italic" />
+
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>  

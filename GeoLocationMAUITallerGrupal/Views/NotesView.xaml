@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoLocationMAUITallerGrupal.Views.NotesView"
+             Title="NotesView">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="25"
+                         BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#1A1A1A}">
+
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2A2A2A}"
+               CornerRadius="20"
+               HasShadow="True"
+               Padding="20"
+               BorderColor="{AppThemeBinding Light=#DDD, Dark=#444}">
+                <Editor x:Name="Texto1"
+                    Placeholder="✏️ Escribe tu nota aquí..."
+                    Text="{Binding Text}"
+                    FontSize="18"
+                    TextColor="{AppThemeBinding Light=#222, Dark=#EEE}"
+                    BackgroundColor="Transparent"
+                    AutoSize="TextChanges" />
+            </Frame>
+
+            <!-- Botones flotantes -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="20"
+              Padding="0" HorizontalOptions="Center">
+                <Button Text="💾"
+                    Clicked="GuardarBtn_Clicked"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    CornerRadius="30"
+                    BackgroundColor="#00C853"
+                    TextColor="White"
+                    FontSize="28"
+                    SemanticProperties.Hint="Guardar nota" />
+
+                <Button Grid.Column="1"
+                    Text="🗑️"
+                    Clicked="DeleteButton_Clicked"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    CornerRadius="30"
+                    BackgroundColor="#D32F2F"
+                    TextColor="White"
+                    FontSize="28"
+                    SemanticProperties.Hint="Borrar nota" />
+            </Grid>
+
+            <!-- Estado de la nota -->
+            <Label x:Name="TextoArchivo"
+               FontSize="14"
+               TextColor="{AppThemeBinding Light=#666, Dark=#AAA}"
+               HorizontalOptions="Center"
+               Margin="0,10,0,0"
+               FontAttributes="Italic" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

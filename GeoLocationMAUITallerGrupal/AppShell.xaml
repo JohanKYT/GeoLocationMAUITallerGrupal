@@ -4,12 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GeoLocationMAUITallerGrupal.Views"
-    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBehavior="Disabled"
     Title="GeoLocationMAUITallerGrupal">
 
-    <ShellContent
+    <TabBar>
+        <ShellContent
         Title="Weather View"
         ContentTemplate="{DataTemplate local:WeatherView}"
         Route="WeatherView" />
+        
+        <ShellContent
+            Title="Notas"
+            ContentTemplate="{DataTemplate local:AllNotesPage}"
+            Route="AllNotesPage" />
 
+    </TabBar>
 </Shell>

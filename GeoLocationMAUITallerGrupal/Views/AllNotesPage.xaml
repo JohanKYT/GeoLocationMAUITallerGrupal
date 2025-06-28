@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:GeoLocationMAUITallerGrupal.Models"
+             x:Class="GeoLocationMAUITallerGrupal.Views.AllNotesPage"
+             Title="Mis Notas"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <Grid RowDefinitions="*,Auto" Padding="15">
+
+        <!-- Lista de notas -->
+        <CollectionView x:Name="notesCollection"
+                        Grid.Row="0"
+                        ItemsSource="{Binding Notes}"
+                        SelectionMode="Single"
+                        SelectionChanged="notesCollection_SelectionChanged"
+                        BackgroundColor="Transparent"
+                        Margin="0,0,0,10">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Note">
+                    <Frame BackgroundColor="{DynamicResource CardBackgroundColor}"
+                           HasShadow="True"
+                           Padding="12"
+                           Margin="0"
+                           BorderColor="{DynamicResource SecondaryColor}">
+                        <Grid ColumnDefinitions="40, *" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="4">
+
+                            <!-- Icono pequeño -->
+                            <Label Text="🗒️"
+                                   FontSize="20"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+
+                            <!-- Texto de la nota -->
+                            <Label Grid.Column="1"
+                                   Text="{Binding Text}"
+                                   FontSize="16"
+                                   TextColor="{DynamicResource PrimaryTextColor}"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="2"
+                                   VerticalOptions="End" />
+
+                            <!-- Fecha debajo -->
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding Date, StringFormat='Creada: {0:dd MMM yyyy, HH:mm}'}"
+                                   FontSize="12"
+                                   TextColor="{DynamicResource SecondaryTextColor}"
+                                   VerticalOptions="Start" />
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Botón flotante de agregar -->
+        <Button Grid.Row="1"
+                Text="Nueva Nota"
+                Clicked="Add_Clicked"
+                BackgroundColor="#2196F3"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="25"
+                HeightRequest="48"
+                HorizontalOptions="Center"
+                WidthRequest="180"
+                Margin="0,10,0,0"
+                />
+    </Grid>
+</ContentPage>
